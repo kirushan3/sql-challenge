@@ -4,6 +4,7 @@ CREATE TABLE departments (dept_no VARCHAR (20),
 						 
 CREATE TABLE dept_emp (emp_no INT,
 						 dept_no VARCHAR (20))
+ALTER TABLE employees ADD PRIMARY KEY (emp_no)
 						 
 CREATE TABLE dept_manager (dept_no VARCHAR (20),
 						   emp_no INT)
@@ -15,6 +16,7 @@ CREATE TABLE employees (emp_no INT,
 						last_name VARCHAR (30),
 						sex VARCHAR (10),
 						hire_date DATE)
+ALTER TABLE employees ADD PRIMARY KEY (emp_no)
 						
 CREATE TABLE salaries (emp_no INT,
 						salary INT)
@@ -99,4 +101,8 @@ ORDER BY employee_count DESC
 --Epilogue
 SELECT first_name, last_name 
 FROM employees WHERE emp_no = 499942
+
+--SELECT u.usename AS "User name", u.usesysid AS "User ID", CASE WHEN u.usesuper AND u.usecreatedb THEN CAST('superuser, create database' AS pg_catalog.text)	WHEN u.usesuper THEN CAST('superuser' AS pg_catalog.text)
+--WHEN u.usecreatedb THEN CAST('create database' AS pg_catalog.text)	ELSE CAST('' AS pg_catalog.text) END AS "Attributes" FROM pg_catalog.pg_user u ORDER BY 1;
+
 
